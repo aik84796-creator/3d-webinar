@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Vance - Executive Strategy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(90deg, #faf8ff 0%, #faf8ff 100%);
+            color: #131b2e;
+        }
+
+        /* Typography */
+        h1 { font-size: 30px; font-weight: 700; line-height: 1.25; letter-spacing: -0.75px; }
+        h2 { font-size: 24px; font-weight: 700; line-height: 1.33; letter-spacing: -0.6px; font-family: 'Liberation Serif', serif; }
+        h3 { font-size: 16px; font-weight: 700; line-height: 1.5; }
+        p { font-size: 14px; font-weight: 400; line-height: 1.6; }
+        .caption { font-size: 12px; font-weight: 500; }
+        .label { font-size: 12px; font-weight: 600; }
+        .small { font-size: 11px; }
+
+        /* Colors */
+        .text-primary { color: #131b2e; }
+        .text-secondary { color: #404944; }
+        .text-tertiary { color: #707973; }
+        .text-accent { color: #002f20; }
+        .text-accent-orange { color: #805614; }
+
+        .bg-primary { background-color: #faf8ff; }
+        .bg-light { background-color: #f2f3ff; }
+        .bg-white { background-color: #ffffff; }
+        .bg-dark { background-color: #002f20; }
+
+        /* Layout */
+        .container {
+            max-width: 390px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .px-4 { padding-left: 16px; padding-right: 16px; }
+        .py-6 { padding-top: 24px; padding-bottom: 24px; }
+        .py-5 { padding-top: 20px; padding-bottom: 20px; }
+        .pt-4 { padding-top: 16px; }
+        .pb-4 { padding-bottom: 16px; }
+
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .gap-2 { gap: 8px; }
+        .gap-3 { gap: 12px; }
+        .gap-4 { gap: 16px; }
+        .gap-6 { gap: 24px; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .w-full { width: 100%; }
+        .relative { position: relative; }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 248, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(192, 201, 194, 0.4);
+            z-index: 100;
+            box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.04);
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .header-logo {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .header-logo-text {
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: -0.35px;
+            color: #002f20;
+        }
+
+        .header-logo-subtext {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #707973;
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .btn-header {
+            background: #0d4733;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Main content */
+        main {
+            margin-top: 64px;
+            padding-top: 32px;
+        }
+
+        section {
+            padding: 40px 0;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #002f20;
+            margin-bottom: 4px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 32px 16px !important;
+        }
+
+        .badge {
+            background: rgba(0, 47, 32, 0.05);
+            border: 1px solid rgba(0, 47, 32, 0.15);
+            border-radius: 12px;
+            padding: 7px 13px;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #002f20;
+            border-radius: 12px;
+        }
+
+        .badge-text {
+            font-size: 12px;
+            color: #002f20;
+        }
+
+        .hero h1 {
+            margin-bottom: 24px;
+            color: #131b2e;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: #404944;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 2px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #0d4733;
+            color: white;
+            box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.1), 0px 2px 4px -2px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary:hover {
+            background: #0a3625;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #131b2e;
+            border: 1px solid #c0c9c2;
+            box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
+        }
+
+        .btn-secondary:hover {
+            background: #f9f9f9;
+        }
+
+        .hero-note {
+            display: flex;
+            gap: 8px;
+            font-size: 12px;
+            color: #707973;
+            margin-bottom: 24px;
+        }
+
+        .hero-image {
+            width: 100%;
+            border: 1px solid rgba(192, 201, 194, 0.6);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0px 20px 25px -5px rgba(0,0,0,0.1), 0px 8px 10px -6px rgba(0,0,0,0.1);
+            position: relative;
+            aspect-ratio: 1 / 1;
+            background: #f0f0f0;
+        }
+
+        .hero-badge-top {
+            position: absolute;
+            top: -12px;
+            left: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(192, 201, 194, 0.6);
+            border-radius: 4px;
+            padding: 7px 13px;
+            box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.1), 0px 2px 4px -2px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .hero-badge-bottom {
+            position: absolute;
+            bottom: -12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(192, 201, 194, 0.6);
+            border-radius: 4px;
+            padding: 7px 13px;
+            box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.1), 0px 2px 4px -2px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        /* Trust Strip */
+        .trust-strip {
+            background: #f2f3ff;
+            border-top: 1px solid rgba(192, 201, 194, 0.4);
+            border-bottom: 1px solid rgba(192, 201, 194, 0.4);
+        }
+
+        .trust-header {
+            text-align: center;
+            color: #707973;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.1px;
+            margin-bottom: 16px;
+            padding: 0 16px;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .trust-item {
+            background: white;
+            border: 1px solid rgba(192, 201, 194, 0.3);
+            border-radius: 2px;
+            padding: 9px;
+            text-align: center;
+        }
+
+        .trust-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #002f20;
+        }
+
+        .trust-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #404944;
+            margin-top: 2px;
+        }
+
+        /* Card & Box Styles */
+        .card {
+            background: white;
+            border: 1px solid rgba(192, 201, 194, 0.5);
+            border-radius: 8px;
+            box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .card-padding {
+            padding: 21px;
+        }
+
+        .card-header {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 47, 32, 0.05);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            background: #e0e0e0;
+            border-radius: 2px;
+        }
+
+        /* Form Styles */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 14px;
+        }
+
+        .form-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #131b2e;
+        }
+
+        .form-input,
+        .form-textarea {
+            background: #faf8ff;
+            border: 1px solid #c0c9c2;
+            border-radius: 2px;
+            padding: 14px 15px;
+            font-size: 14px;
+            color: #131b2e;
+            font-family: inherit;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #0d4733;
+            box-shadow: 0 0 0 2px rgba(13, 71, 51, 0.1);
+        }
+
+        .form-card {
+            background: white;
+            border: 1px solid rgba(192, 201, 194, 0.6);
+            border-radius: 16px;
+            padding: 21px;
+            box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);
+        }
+
+        .form-disclaimer {
+            font-size: 11px;
+            color: #707973;
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        /* Payment Section */
+        .payment-section {
+            background: #f2f3ff;
+        }
+
+        .payment-card {
+            background: white;
+            border: 1px solid rgba(192, 201, 194, 0.6);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1);
+        }
+
+        .payment-header {
+            background: white;
+            border-bottom: 1px solid rgba(192, 201, 194, 0.3);
+            padding: 20px;
+        }
+
+        .payment-overlay {
+            background: rgba(128, 86, 20, 0.1);
+            border-radius: 2px;
+            padding: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #805614;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .payment-price {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-size: 30px;
+            font-weight: 700;
+            color: #002f20;
+            font-family: 'Liberation Serif', serif;
+            margin-top: 12px;
+        }
+
+        .payment-frequency {
+            font-size: 12px;
+            font-weight: 500;
+            color: #707973;
+        }
+
+        .payment-content {
+            padding: 20px;
+        }
+
+        .payment-desc {
+            font-size: 12px;
+            color: #404944;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .payment-features {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .payment-feature {
+            display: flex;
+            gap: 10px;
+        }
+
+        .feature-icon {
+            width: 10.867px;
+            height: 10.017px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 12px;
+            font-weight: 500;
+            color: #131b2e;
+        }
+
+        .payment-footer {
+            font-size: 11px;
+            color: #707973;
+            text-align: center;
+        }
+
+        /* Free Audit CTA Button */
+        .free-audit-section {
+            background: linear-gradient(135deg, rgba(0, 47, 32, 0.05) 0%, rgba(128, 86, 20, 0.05) 100%);
+            border: 1px solid rgba(0, 47, 32, 0.1);
+            border-radius: 8px;
+            padding: 20px 16px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .free-audit-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #002f20;
+            margin-bottom: 8px;
+        }
+
+        .free-audit-desc {
+            font-size: 12px;
+            color: #404944;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .btn-free-audit {
+            background: #805614;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 2px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-free-audit:hover {
+            background: #6a4611;
+        }
+
+        /* Footer */
+        footer {
+            background: #f2f3ff;
+            border-top: 1px solid rgba(192, 201, 194, 0.3);
+            padding: 81px 16px 80px;
+        }
+
+        .footer-content {
+            max-width: 390px;
+            margin: 0 auto;
+        }
+
+        .footer-header {
+            border-bottom: 1px solid rgba(192, 201, 194, 0.3);
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+        }
+
+        .footer-logo-section {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            align-items: center;
+        }
+
+        .footer-logo-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #002f20;
+        }
+
+        .footer-divider {
+            color: #c0c9c2;
+            margin: 0 8px;
+        }
+
+        .footer-tagline {
+            font-size: 12px;
+            font-weight: 500;
+            color: #707973;
+        }
+
+        .footer-desc {
+            font-size: 12px;
+            color: #404944;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .footer-col {
+            flex: 1;
+        }
+
+        .footer-col-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #002f20;
+            margin-bottom: 6px;
+        }
+
+        .footer-link {
+            font-size: 12px;
+            color: #404944;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 11px;
+            color: #707973;
+        }
+
+        .footer-dividers {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 8px;
+            font-size: 11px;
+        }
+
+        .footer-dividers a {
+            color: #707973;
+            text-decoration: none;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid rgba(192, 201, 194, 0.5);
+            border-radius: 8px;
+            padding: 21px;
+            box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
+        }
+
+        .service-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #131b2e;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+
+        .service-desc {
+            font-size: 12px;
+            color: #404944;
+            line-height: 1.6;
+        }
+
+        .service-divider {
+            border-top: 1px solid rgba(192, 201, 194, 0.3);
+            margin-top: 12px;
+            padding-top: 12px;
+        }
+
+        .service-outcome {
+            font-size: 12px;
+            font-weight: 600;
+            color: #002f20;
+            margin-bottom: 8px;
+        }
+
+        /* Step Cards */
+        .step-card {
+            background: white;
+            border: 1px solid rgba(192, 201, 194, 0.5);
+            border-radius: 8px;
+            padding: 21px;
+            box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            font-size: 12px;
+            font-weight: 700;
+            color: #805614;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 8px;
+        }
+
+        .step-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #131b2e;
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: #404944;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+        }
+
+        .quote-card {
+            background: white;
+            border: 1px solid rgba(192, 201, 194, 0.6);
+            border-radius: 16px;
+            padding: 21px;
+            box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
+            margin-bottom: 24px;
+        }
+
+        .quote-mark {
+            font-size: 36px;
+            color: #805614;
+            font-family: 'Liberation Serif', serif;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .quote-text {
+            font-size: 18px;
+            font-family: 'Liberation Serif', serif;
+            font-style: italic;
+            color: #002f20;
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+
+        .quote-author {
+            border-top: 1px solid rgba(192, 201, 194, 0.4);
+            padding-top: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #131b2e;
+        }
+
+        .author-title {
+            font-size: 12px;
+            color: #707973;
+        }
+
+        /* Alert/Success Messages */
+        .alert {
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .button-group {
+                width: 100%;
+            }
+
+            h1 { font-size: 28px; }
+            h2 { font-size: 22px; }
+
+            section {
+                padding: 32px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-logo">
+                <div>
+                    <div class="header-logo-text">Elena Vance</div>
+                    <div class="header-logo-subtext">Executive Strategy</div>
+                </div>
+            </div>
+            <div class="header-cta">
+                <button class="btn-header">Get Started</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container px-4">
+                <div class="badge">
+                    <div class="badge-dot"></div>
+                    <div class="badge-text">Turn authority into high-value engagements</div>
+                </div>
+
+                <h1>Turn Your Market Authority Into High-Value Executive Engagements.</h1>
+
+                <p class="hero-desc">
+                    I partner with seasoned founders and boutique advisory leaders to articulate proprietary thinking, structure premium offerings, and attract five- and six-figure enterprise client relationships directly via LinkedIn without cold outreach or gimmicky tactics.
+                </p>
+
+                <div class="button-group">
+                    <button class="btn btn-primary">Get Started</button>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+
+                <div class="hero-note">
+                    <span>📌</span>
+                    <span>Built for leaders with 10+ years domain expertise ready for strategic advisory deals.</span>
+                </div>
+
+                <div class="hero-image">
+                    <div class="hero-badge-top">
+                        <div class="caption" style="color: #002f20; font-weight: 700; text-transform: uppercase; margin-bottom: 2px;">Focus</div>
+                        <div style="font-weight: 600; font-size: 12px; color: #131b2e;">B2B Advisory & Tech</div>
+                    </div>
+                    <div class="hero-badge-bottom">
+                        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                            <span style="width: 6px; height: 6px; background: #805614; border-radius: 12px;"></span>
+                            <span style="font-weight: 700; font-size: 10px; text-transform: uppercase; color: #805614;">Partnership</span>
+                        </div>
+                        <div style="font-weight: 600; font-size: 12px; color: #131b2e;">1-on-1 Strategic Retainer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Strip -->
+        <section class="trust-strip">
+            <div class="trust-header">Advising Leaders Across High-Stakes Industries</div>
+            <div class="container px-4">
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-value">12+</div>
+                        <div class="trust-label">Years Advisory</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-value">$45k-$180k</div>
+                        <div class="trust-label">Avg Client Deal</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-value">100%</div>
+                        <div class="trust-label">Inbound Pipeline</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-value">Series B+</div>
+                        <div class="trust-label">Maturity Stage</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="container px-4">
+                <div class="quote-card">
+                    <div class="quote-mark">"</div>
+                    <div class="quote-text">
+                        True authority isn't about publishing more noise; it's about framing your rarest expertise so clearly that right-fit clients seek you out first.
+                    </div>
+                    <div class="quote-author">
+                        <div class="author-info">
+                            <div class="author-name">Elena Vance</div>
+                            <div class="author-title">Founder & Principal Strategist</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-label">About Elena</div>
+                <h2 style="margin-bottom: 20px;">Strategic clarity built from over a decade inside commercial leadership.</h2>
+
+                <p style="margin-bottom: 11px;">
+                    After ten years steering commercial strategy and executive growth programs, I noticed a consistent friction: the most capable subject-matter experts in industry were often the most invisible to their ideal buyers.
+                </p>
+
+                <p style="margin-bottom: 11px;">
+                    I founded this advisory practice to dismantle generic marketing advice. We don't do templated viral posts or aggressive DM funnels. Instead, we clarify your core intellectual property, package your high-tier services, and engineer a LinkedIn presence that speaks directly to boardrooms and budget-holders.
+                </p>
+
+                <p style="margin-bottom: 20px;">
+                    My approach is hands-on, rigorous, and deeply collaborative. You work directly with me — no junior account managers or recycled frameworks.
+                </p>
+
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <span style="font-weight: 700; font-size: 14px; color: #002f20;">Explore Advisory Services</span>
+                    <span>→</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="bg-light" style="padding: 40px 0;">
+            <div class="container px-4">
+                <div class="section-label">What I Can Help You With</div>
+                <h2 style="margin-bottom: 20px;">Advisory Engagements Designed for High-Trust Practices</h2>
+                <p style="margin-bottom: 24px;">Targeted strategic engagements designed around your business maturity.</p>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <div class="icon"></div>
+                        </div>
+                        <div class="service-title">Executive Positioning & IP Framing</div>
+                        <div class="service-desc">
+                            Audit your existing domain experience and distill your methodology into a distinct, defensible market perspective that separates you from commodity service providers.
+                        </div>
+                        <div class="service-divider">
+                            <div class="service-outcome">Outcome: Clear market positioning and high-ticket service articulation.</div>
+                            <div style="display: flex; gap: 4px; align-items: center; font-weight: 700; color: #707973; font-size: 12px; text-transform: uppercase;">
+                                <span>View Details</span> <span>→</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <div class="icon"></div>
+                        </div>
+                        <div class="service-title">Inbound Pipeline & Content Engine</div>
+                        <div class="service-desc">
+                            Develop a bespoke thought-leadership blueprint tailored to LinkedIn that engages enterprise buyers, senior decision-makers, and prospective partners.
+                        </div>
+                        <div class="service-divider">
+                            <div class="service-outcome">Outcome: Consistent weekly inbound enquiries from qualified decision-makers.</div>
+                            <div style="display: flex; gap: 4px; align-items: center; font-weight: 700; color: #707973; font-size: 12px; text-transform: uppercase;">
+                                <span>View Details</span> <span>→</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <div class="icon"></div>
+                        </div>
+                        <div class="service-title">1-on-1 Strategic Advisory Retainer</div>
+                        <div class="service-desc">
+                            Ongoing private advisory on deal structuring, client discovery discussions, content iteration, and commercial conversion for high-stakes engagements.
+                        </div>
+                        <div class="service-divider">
+                            <div class="service-outcome">Outcome: Dedicated strategic sounding board and active pipeline acceleration.</div>
+                            <div style="display: flex; gap: 4px; align-items: center; font-weight: 700; color: #707973; font-size: 12px; text-transform: uppercase;">
+                                <span>View Details</span> <span>→</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section style="padding: 40px 0;">
+            <div class="container px-4">
+                <div class="section-label">Structured Process</div>
+                <h2 style="margin-bottom: 20px;">How It Works</h2>
+                <p style="margin-bottom: 24px;">A clear, structured 3-step collaboration designed to protect your time.</p>
+
+                <div class="services-grid">
+                    <div class="step-card">
+                        <div class="step-number">Step 01</div>
+                        <div class="step-title">01 — Preliminary Alignment</div>
+                        <div class="step-desc">
+                            Submit the brief enquiry form below. We'll review your current background, target client profile, and LinkedIn presence to confirm mutual fit before scheduling a call.
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">Step 02</div>
+                        <div class="step-title">02 — Strategy & Architecture</div>
+                        <div class="step-desc">
+                            In a dedicated 90-minute session, we extract your signature framework, define high-value commercial offers, and map your 90-day positioning roadmap.
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">Step 03</div>
+                        <div class="step-title">03 — Execution & Traction</div>
+                        <div class="step-desc">
+                            Implement your targeted LinkedIn messaging, publish executive-tier pieces, and refine incoming conversations into structured advisory agreements.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section style="padding: 40px 0;">
+            <div class="container px-4">
+                <div class="section-label">Direct Connection</div>
+                <h2 style="margin-bottom: 20px;">Let's Talk About What You Need</h2>
+                <p style="margin-bottom: 24px;">
+                    Whether you are looking to reposition your advisory practice or turn your executive experience into private consultancy clients, send a message below. I review every submission personally within 24 business hours.
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <span style="width: 15px; height: 15px; background: #e0e0e0; border-radius: 2px;"></span>
+                        <span style="font-weight: 500; font-size: 12px; color: #131b2e;">Direct reply from Elena Vance</span>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <span style="width: 15px; height: 15px; background: #e0e0e0; border-radius: 2px;"></span>
+                        <span style="font-weight: 500; font-size: 12px; color: #131b2e;">No obligation or automated sales spam</span>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <span style="width: 15px; height: 15px; background: #e0e0e0; border-radius: 2px;"></span>
+                        <span style="font-weight: 500; font-size: 12px; color: #131b2e;">Complete confidentiality assured</span>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div id="successAlert" class="alert alert-success">
+                        ✓ Thank you! Your enquiry has been received. Elena will review your message within 24 business hours.
+                    </div>
+                    <div id="errorAlert" class="alert alert-error">
+                        ✗ An error occurred. Please try again or reach out directly.
+                    </div>
+
+                    <form id="enquiryForm">
+                        <div class="form-group">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" name="name" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" name="email" class="form-input" placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Phone or LinkedIn URL</label>
+                            <input type="text" name="phone" class="form-input" placeholder="LinkedIn URL or phone number">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Enquiry</button>
+
+                        <div class="form-disclaimer">
+                            Your information will only be used to respond to your enquiry.<br>Never shared.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment/Intensive Section -->
+        <section class="payment-section" style="padding: 40px 0;">
+            <div class="container px-4">
+                <div class="section-label">Direct Booking</div>
+                <h2 style="margin-bottom: 20px;">Direct Advisory Intensive</h2>
+                <p style="margin-bottom: 24px;">Overhaul your positioning and pipeline in one focused session.</p>
+
+                <!-- Free Audit CTA -->
+                <div class="free-audit-section">
+                    <div class="free-audit-title">Get Free Audit for ₹1</div>
+                    <div class="free-audit-desc">
+                        Start with a comprehensive free audit of your current positioning and LinkedIn presence. Just ₹1 to get started.
+                    </div>
+                    <a href="https://payments.cashfree.com/forms/getaudit" target="_blank" class="btn-free-audit">
+                        Proceed to Free Audit (₹1)
+                    </a>
+                </div>
+
+                <!-- Main Payment Card -->
+                <div class="payment-card">
+                    <div class="payment-header">
+                        <div class="payment-overlay">Available by Application & Direct Booking</div>
+                        <h3 style="color: #131b2e; margin-bottom: 12px;">90-Minute Executive Strategy Intensive</h3>
+                        <div class="payment-price">
+                            $1,500
+                            <span class="payment-frequency">/ Dedicated Session</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-content">
+                        <div class="payment-desc">
+                            A comprehensive, high-leverage 1-on-1 working session directly with Elena to diagnose positioning bottlenecks, reconstruct your offer suite, and establish an actionable LinkedIn outreach strategy.
+                        </div>
+
+                        <div class="payment-features">
+                            <div class="payment-feature">
+                                <div class="feature-icon" style="background: #e0e0e0;"></div>
+                                <div class="feature-text">Complete pre-session audit of your LinkedIn profile and past posts</div>
+                            </div>
+                            <div class="payment-feature">
+                                <div class="feature-icon" style="background: #e0e0e0;"></div>
+                                <div class="feature-text">90 minutes of focused 1-on-1 video advisory with Elena Vance</div>
+                            </div>
+                            <div class="payment-feature">
+                                <div class="feature-icon" style="background: #e0e0e0;"></div>
+                                <div class="feature-text">Custom Offer Framing & Pricing Blueprint document</div>
+                            </div>
+                            <div class="payment-feature">
+                                <div class="feature-icon" style="background: #e0e0e0;"></div>
+                                <div class="feature-text">14 days of direct email follow-up and content review</div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">Proceed to Payment / Reserve Session</button>
+
+                        <div class="payment-footer">
+                            You'll receive the preparation questionnaire and scheduling calendar immediately after preliminary confirmation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Work With Me -->
+        <section class="bg-light" style="padding: 40px 0;">
+            <div class="container px-4">
+                <div class="section-label">Differentiated Partnership</div>
+                <h2 style="margin-bottom: 24px;">Why Senior Professionals Choose This Practice</h2>
+
+                <div class="services-grid">
+                    <div class="card card-padding">
+                        <div class="card-header">
+                            <div class="icon-box">
+                                <div class="icon"></div>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 4px;">Senior-Level Execution Only</h3>
+                                <p style="font-size: 12px; color: #404944;">Every strategy, review, and recommendation is handled directly by Elena. You never get passed down to junior generalists.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-padding">
+                        <div class="card-header">
+                            <div class="icon-box">
+                                <div class="icon"></div>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 4px;">Substance Over Vanity Metrics</h3>
+                                <p style="font-size: 12px; color: #404944;">We measure success by qualified commercial enquiries, boardroom introductions, and closed client contracts — not vanity followers.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-padding">
+                        <div class="card-header">
+                            <div class="icon-box">
+                                <div class="icon"></div>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 4px;">Respect for Executive Time</h3>
+                                <p style="font-size: 12px; color: #404944;">Our frameworks are built specifically for busy executives. You need less than 2 hours per week to run an authoritative LinkedIn channel.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-padding">
+                        <div class="card-header">
+                            <div class="icon-box">
+                                <div class="icon"></div>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 4px;">Transparent, Discretion-First Process</h3>
+                                <p style="font-size: 12px; color: #404944;">We respect confidentiality and work with executives navigating sensitive corporate transitions, firm partnerships, and high-visibility roles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section style="padding: 40px 0;">
+            <div class="container px-4">
+                <div class="section-label">Common Inquiries</div>
+                <h2 style="margin-bottom: 20px;">Frequently Asked Questions</h2>
+                <p style="margin-bottom: 24px;">Clear answers to help you evaluate if this partnership is the right fit.</p>
+
+                <div class="services-grid">
+                    <div class="card card-padding">
+                        <h3 style="font-size: 14px; cursor: pointer;">Who is this service specifically for?</h3>
+                    </div>
+                    <div class="card card-padding">
+                        <h3 style="font-size: 14px; cursor: pointer;">How much time will I need to commit each week?</h3>
+                    </div>
+                    <div class="card card-padding">
+                        <h3 style="font-size: 14px; cursor: pointer;">What is included in the advisory engagement?</h3>
+                    </div>
+                    <div class="card card-padding">
+                        <h3 style="font-size: 14px; cursor: pointer;">How long does it take to see results?</h3>
+                    </div>
+                    <div class="card card-padding">
+                        <h3 style="font-size: 14px; cursor: pointer;">What happens after I submit the enquiry form?</h3>
+                    </div>
+                    <div class="card card-padding">
+                        <h3 style="font-size: 14px; cursor: pointer;">Can I speak with Elena before making payment?</h3>
+                    </div>
+                    <div class="card card-padding">
+                        <h3 style="font-size: 14px; cursor: pointer;">How is payment handled and what terms apply?</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="bg-dark" style="padding: 40px 0; color: white;">
+            <div class="container px-4" style="text-align: center;">
+                <h2 style="color: white; margin-bottom: 12px;">Ready to Turn Your Expertise Into Consistent Executive Opportunities?</h2>
+                <p style="color: rgba(126, 181, 155, 0.8); margin-bottom: 24px;">
+                    Take the first step by submitting a brief enquiry. We'll assess your current positioning and show you exactly how to build an authoritative, client-generating presence on LinkedIn.
+                </p>
+                <div class="button-group">
+                    <button class="btn btn-primary" style="background: white; color: #002f20;">Get Started Now</button>
+                    <button class="btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white;">Schedule Preliminary Call</button>
+                </div>
+                <p class="small" style="color: rgba(126, 181, 155, 0.8); margin-top: 12px;">No high-pressure sales. Direct conversation with Elena.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-header">
+                <div class="footer-logo-section">
+                    <div>
+                        <div class="footer-logo-name">Elena Vance</div>
+                        <div class="footer-tagline">Executive Strategy</div>
+                    </div>
+                </div>
+                <div class="footer-desc">
+                    Architecting category-defining presence, strategic clarity, and authority platforms for Founders and C-Suite Leaders.
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <div class="footer-col-title">Navigation</div>
+                        <a href="#" class="footer-link">About Strategy</a><br>
+                        <a href="#" class="footer-link">Advisory & Services</a><br>
+                        <a href="#" class="footer-link">The Framework</a><br>
+                        <a href="#" class="footer-link">Why Me</a><br>
+                        <a href="#" class="footer-link">FAQ</a>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-col-title">Connect</div>
+                        <a href="#" class="footer-link">LinkedIn</a><br>
+                        <a href="#" class="footer-link">Direct Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Elena Vance Executive Strategy. All rights reserved.</p>
+                <div class="footer-dividers">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Engagement</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form Submission Script -->
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzh8VK_kCYXDymItWA0Oz6Sh1vlfvPJI8RmhQF8bAcjunEqW7YTaFxd4HZnsfxI0SAv4w/exec';
+
+        const form = document.getElementById('enquiryForm');
+        const successAlert = document.getElementById('successAlert');
+        const errorAlert = document.getElementById('errorAlert');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Hide both alerts
+            successAlert.classList.remove('show');
+            errorAlert.classList.remove('show');
+
+            // Get form data
+            const name = form.elements['name'].value;
+            const email = form.elements['email'].value;
+            const phone = form.elements['phone'].value;
+
+            // Build URL with query parameters
+            const url = SCRIPT_URL + '?' + new URLSearchParams({
+                name: name,
+                email: email,
+                phone: phone
+            });
+
+            // Send form data using fetch with no-cors
+            fetch(url, {
+                method: 'GET',
+                mode: 'no-cors'
+            })
+            .then(() => {
+                // On success, show success message and reset form
+                showSuccess();
+                form.reset();
+            })
+            .catch(() => {
+                // On error, show error message
+                showError();
+            });
+        });
+
+        function showSuccess() {
+            successAlert.classList.add('show');
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                successAlert.classList.remove('show');
+            }, 5000);
+        }
+
+        function showError() {
+            errorAlert.classList.add('show');
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                errorAlert.classList.remove('show');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
